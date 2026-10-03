@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ---- Neumorphic (soft 3D) design system ---- */
+:root {
+  --neu-bg: #eceff4;
+  --neu-light: #ffffff;
+  --neu-dark: #b8c0cf;
+  --neu-text: #3b4252;
+}
+
+body { background: var(--neu-bg); color: var(--neu-text); }
+
+@layer components {
+  .neu-page { background: var(--neu-bg); color: var(--neu-text); }
+
+  .neu-header {
+    background: var(--neu-bg);
+    box-shadow: 0 8px 18px -8px var(--neu-dark), 0 -1px 0 var(--neu-light) inset;
+  }
+
+  .neu-card {
+    @apply rounded-2xl;
+    background: var(--neu-bg);
+    box-shadow: 9px 9px 20px var(--neu-dark), -9px -9px 20px var(--neu-light);
+  }
+  .neu-card-flat {
+    @apply rounded-2xl;
+    background: var(--neu-bg);
+    box-shadow: 4px 4px 11px var(--neu-dark), -4px -4px 11px var(--neu-light);
+  }
+  .neu-inset {
+    @apply rounded-xl;
+    background: var(--neu-bg);
+    box-shadow: inset 4px 4px 9px var(--neu-dark), inset -4px -4px 9px var(--neu-light);
+  }
+
+  .neu-input {
+    @apply rounded-xl outline-none transition;
+    background: var(--neu-bg);
+    color: var(--neu-text);
+    box-shadow: inset 4px 4px 9px var(--neu-dark), inset -4px -4px 9px var(--neu-light);
+  }
+  .neu-input:focus, .neu-input-focus {
+    box-shadow: inset 4px 4px 9px var(--neu-dark), inset -4px -4px 9px var(--neu-light), 0 0 0 2px rgb(238 0 0 / 0.35);
+  }
+  .neu-input-error { box-shadow: inset 4px 4px 9px var(--neu-dark), inset -4px -4px 9px var(--neu-light), 0 0 0 2px rgb(248 113 113 / 0.8); }
+  .neu-input-readonly { box-shadow: inset 2px 2px 6px var(--neu-dark), inset -2px -2px 6px var(--neu-light); color: #5b6475; }
+
+  .neu-btn {
+    @apply rounded-xl transition;
+    background: var(--neu-bg);
+    color: var(--neu-text);
+    box-shadow: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+  }
+  .neu-btn:active {
+    box-shadow: inset 3px 3px 8px var(--neu-dark), inset -3px -3px 8px var(--neu-light);
+  }
+  .neu-btn:disabled { opacity: .6; }
+  @media (hover: hover) {
+    .neu-btn:not(:disabled):hover {
+      background: linear-gradient(145deg, #ff3b3b, #d90000);
+      color: #fff;
+      box-shadow: 4px 4px 10px rgb(185 0 0 / 0.4), -3px -3px 10px var(--neu-light);
+    }
+    .neu-btn:not(:disabled):hover:active {
+      box-shadow: inset 3px 3px 8px rgb(120 0 0 / 0.45), inset -2px -2px 8px rgb(255 90 90 / 0.5);
+    }
+  }
+
+  .neu-primary {
+    @apply rounded-xl text-white transition;
+    background: linear-gradient(145deg, #ff3b3b, #d90000);
+    box-shadow: 6px 6px 14px rgb(185 0 0 / 0.4), -4px -4px 12px var(--neu-light);
+  }
+  .neu-primary:active {
+    background: linear-gradient(145deg, #d90000, #ff3b3b);
+    box-shadow: inset 3px 3px 8px rgb(120 0 0 / 0.45), inset -2px -2px 8px rgb(255 90 90 / 0.5);
+  }
+  .neu-primary:disabled { opacity: .6; }
+
+  .neu-chip {
+    @apply rounded-full;
+    background: var(--neu-bg);
+    box-shadow: 3px 3px 7px var(--neu-dark), -3px -3px 7px var(--neu-light);
+  }
+  .neu-icon-tile {
+    background: linear-gradient(145deg, #ff3b3b, #d90000);
+    box-shadow: 4px 4px 10px rgb(185 0 0 / 0.4), -3px -3px 10px var(--neu-light);
+  }
+}
+
+/* ---- Responsive helpers ---- */
+html { overflow-x: hidden; }
+@media (max-width: 640px) {
+  /* tighten shadow offsets on phones so they never clip at screen edges */
+  .neu-card { box-shadow: 4px 4px 10px var(--neu-dark), -4px -4px 10px var(--neu-light); }
+}
+.neu-bottombar { padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px)); }
+@media (min-width: 640px) { .neu-bottombar { box-shadow: none !important; background: transparent !important; } }

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(perl -pi -e 's/w-full neu-btn px-3 py-3 text-base text-slate-900 outline-none transition focus:border-brand-700 focus:ring-2 focus:ring-brand-700\\\\/15/w-full neu-input px-3 py-3 text-base/' components/auth/AuthScreen.jsx)",
+      "Bash(perl -pi -e 's/w-full neu-btn py-3 pl-10 pr-9 text-base outline-none focus:border-brand-700 focus:ring-2 focus:ring-brand-700\\\\/15/w-full neu-input py-3 pl-10 pr-9 text-base/' components/PatientList.jsx)",
+      "Bash(perl -pi -e 's/pt-1 px-4 pb-5 pt-5/px-4 pb-5 pt-3/; s/rounded-full bg-red-50 px-2/neu-chip px-2.5/' components/ui/Section.jsx)",
+      "Bash(perl -pi -e 's/ active:bg-brand-100//' components/form/DischargeForm.jsx)",
+      "Bash(python -)",
+      "Bash(npx eslint *)"
+    ]
+  }
+}
